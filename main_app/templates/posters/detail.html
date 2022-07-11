@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Poster Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ poster.name }}</span>
+    <p>Type: {{ poster.type }}</p>
+    <p>Description: {{ poster.description }}</p>
+    
+  </div>
+</div>
+
+{% endblock %}
