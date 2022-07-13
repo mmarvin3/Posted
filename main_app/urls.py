@@ -10,5 +10,5 @@ urlpatterns = [
     path('posters/create/', views.PosterCreate.as_view(), name='posters_create'),
     path('posters/<int:pk>/update/', views.PosterUpdate.as_view(), name='posters_update'),
     path('posters/<int:pk>/delete/', views.PosterDelete.as_view(), name='posters_delete'),
-    
+    path('accounts/signup/', views.signup, name='signup'),
 ]
