@@ -1,1 +1,1 @@
-web: gunicorn pjt-four-posted.wsgi
+web: gunicorn pjt_four_app.wsgi
