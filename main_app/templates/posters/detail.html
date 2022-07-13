@@ -4,10 +4,14 @@
 
 <div class="card">
   <div class="card-content">
-    <span class="card-title">{{ poster.name }}</span>
-    <p>Type: {{ poster.type }}</p>
-    <p>Description: {{ poster.description }}</p>
+    <span class="card-title">{{ posters.name }}</span>
+    <p>Type: {{ posters.type }}</p>
+    <p>Description: {{ posters.description }}</p>
     
+  </div>
+  <div class="card-action">
+      <a href="{% url 'posters_update' posters.id %}">Edit</a>
+      <a href="{% url 'posters_delete' posters.id %}">Delete</a>
   </div>
 </div>
 

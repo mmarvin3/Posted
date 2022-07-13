@@ -23,8 +23,9 @@
                     </li>
                 </ul>
                 <ul class="right">
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/posters">View Poster Gallery</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'posters_create' %}">Add a Poster</a></li>
+                    <li><a href="{% url 'index' %}">View Poster Gallery</a></li>
                 </ul>
             </div>
         </nav>
