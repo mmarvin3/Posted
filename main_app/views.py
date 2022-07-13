@@ -60,6 +60,7 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
+@login_required
 def add_photo(request, poster_id):
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
@@ -70,6 +71,6 @@ def add_photo(request, poster_id):
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
             photo = Photo(url=url, poster_id=poster_id)
             photo.save()
-        except:
-            print('An error ocurred uploading file to S3')
+        except Exception as error:
+            print('An error ocurred uploading file to S3', error)
     return redirect('detail', poster_id=poster_id)
