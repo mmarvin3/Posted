@@ -11,4 +11,5 @@ urlpatterns = [
     path('posters/<int:pk>/update/', views.PosterUpdate.as_view(), name='posters_update'),
     path('posters/<int:pk>/delete/', views.PosterDelete.as_view(), name='posters_delete'),
     path('accounts/signup/', views.signup, name='signup'),
+    path('posters/<int:poster_id>/add_photo/', views.add_photo, name='add_photo'),
 ]

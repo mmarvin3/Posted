@@ -3,16 +3,33 @@
 <h1>Poster Details</h1>
 
 <div class="card">
-  <div class="card-content">
-    <span class="card-title">{{ posters.name }}</span>
-    <p>Type: {{ posters.type }}</p>
-    <p>Description: {{ posters.description }}</p>
-    
-  </div>
-  <div class="card-action">
-      <a href="{% url 'posters_update' posters.id %}">Edit</a>
-      <a href="{% url 'posters_delete' posters.id %}">Delete</a>
-  </div>
+    <div class="card-content">
+        <span class="card-title">{{ posters.name }}</span>
+        <p>Type: {{ posters.type }}</p>
+        <p>Description: {{ posters.description }}</p>
+
+    </div>
+    <div class="card-action">
+        <a href="{% url 'posters_update' posters.id %}">Edit</a>
+        <a href="{% url 'posters_delete' posters.id %}">Delete</a>
+    </div>
 </div>
+{% for photo in poster.photo_set.all %}
+<img class="responsive-img card-panel" src="{{photo.url}}">
+{% empty %}
+<div class="card-panel teal-text center-align">No Photos Uploaded</div>
+{% endfor %}
+
+<form
+  action="{% url 'add_photo' posters.id %}"
+  enctype="multipart/form-data"
+  method="POST"
+  class="card-panel"
+>
+  {% csrf_token %}
+  <input type="file" name="photo-file" />
+  <br /><br />
+  <input type="submit" class="btn" value="Upload Photo" />
+</form>
 
 {% endblock %}
