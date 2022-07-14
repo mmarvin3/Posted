@@ -7,9 +7,14 @@
     <a href="{% url 'detail' poster.id %}">
         <div class="card-content">
             <span class="card-title">{{ poster.name }}</span>
+            <img class="responsive-img card-panel" src="{{photo.url}}">
             <p>Type: {{ poster.type }}</p>
             <p>Description: {{ poster.description }}</p>
         </div>
+        {% for photo in posters.photo_set.all %}
+        <img class="responsive-img card-panel" src="{{photo.url}}">
+        {% empty %}
+        {% endfor %}
     </a>
 </div>
 {% endfor %} {% endblock %}
