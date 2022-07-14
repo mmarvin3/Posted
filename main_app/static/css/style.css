@@ -13,3 +13,8 @@ footer {
     padding-top: 0;
     text-align: right;
 }
+
+.main-container {
+    /* background-color: beige; */
+    background-image: url(https://img.freepik.com/free-vector/art-gallery-empty-interior-3d-room-with-white-walls-floor-illumination-lamps-museum-passages-with-lights-pictures-presentation-photography-contest-exhibition-hall_107791-4221.jpg?t=st=1657806341~exp=1657806941~hmac=25467a9…&w=2000);
+}
