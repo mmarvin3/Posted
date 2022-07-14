@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid
 import boto3
 from .models import Poster, Photo
@@ -30,7 +31,7 @@ def posters_detail(request, poster_id):
     poster = Poster.objects.get(id=poster_id)
     return render(request, 'posters/detail.html', { 'posters': poster })
 
-class PosterCreate(CreateView):
+class PosterCreate(LoginRequiredMixin, CreateView):
     model = Poster
     fields = ['name', 'type', 'description']
     success_url = '/posters/'
@@ -38,11 +39,11 @@ class PosterCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class PosterUpdate(UpdateView):
+class PosterUpdate(LoginRequiredMixin, UpdateView):
     model = Poster
     fields = ['name', 'type', 'description']
 
-class PosterDelete(DeleteView):
+class PosterDelete(LoginRequiredMixin, DeleteView):
     model = Poster
     success_url = '/posters/'
 
